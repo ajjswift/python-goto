@@ -2,7 +2,6 @@ from sys import modules, getrecursionlimit
 from inspect import getsourcelines
 
 labelMap = {}
-goToSkip = []
 goto_count = 0  # Initialize a counter for goto calls
 
 def label(l):
