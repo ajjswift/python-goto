@@ -90,6 +90,9 @@ def goto(l, i=0):
 
 # Example usage
 # The loopholes having to be jumped through in the example are also perfect evidence that structured programming is better.
+# If you want multiple goto() statements to go to the same label (excluding within recursion), put an index after the label like so:
+# goto(label, 1). The indexes should be in the order that the goto statements appear.
+# I've had to do this as there's on other way to keep track of them properly.
 
 doAgain = True # Do again statement must be set before the label to prevent from being run again, else would run into issues with infinite recursion.
 label('Start first loop')
