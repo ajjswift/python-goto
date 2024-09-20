@@ -74,15 +74,7 @@ def goto(l, i=0):
         return
 
     matchGotoLine = normalized_source.index(match) + 1
-    absoluteLine = sourceCode[matchGotoLine - 1]
 
-    offset = -1
-    if absoluteLine.startswith('    ') | absoluteLine.startswith('	'):
-        prevLine = sourceCode[matchGotoLine - 2]
-        if prevLine.startswith('    ') == False | prevLine.startswith('	') == False:
-            offset = -2
-
-    #print(offset)
 
     # Check if goto is after the label
     if matchGotoLine <= labelLine:
@@ -90,7 +82,7 @@ def goto(l, i=0):
         return
 
     # Execute all code from the label line to the matchGotoLine
-    affectedLines = '\n'.join(sourceCode[labelLine - 1:matchGotoLine + 0])
+    affectedLines = '\n'.join(sourceCode[labelLine - 1:matchGotoLine])
     exec(affectedLines, modules['__main__'].__dict__)
 
 
@@ -113,4 +105,4 @@ if (doAgain == True):
     doAgain = False
     goto('Start first loop')
 
-    print('done')
+    print('Finished')
